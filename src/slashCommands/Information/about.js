@@ -1,47 +1,80 @@
-const { EmbedBuilder, CommandInteraction, Client, ActionRowBuilder, ButtonBuilder, ButtonStyle, ApplicationCommandType } = require("discord.js")
+const {
+  EmbedBuilder,
+  CommandInteraction,
+  Client,
+  ActionRowBuilder,
+  ButtonBuilder,
+  ButtonStyle,
+  ApplicationCommandType,
+} = require("discord.js");
 
 module.exports = {
-    name: "about",
-    description: "See information about this project.",
-    type: ApplicationCommandType.ChatInput,
-    /**
-     * 
-     * @param {Client} client 
-     * @param {CommandInteraction} interaction 
-     */
+  name: "about",
+  description: "See information about this project.",
+  type: ApplicationCommandType.ChatInput,
+  /**
+   *
+   * @param {Client} client
+   * @param {CommandInteraction} interaction
+   */
 
-    run: async (client, interaction) => {
-        await interaction.deferReply({
-            ephemeral: false
-        });
-        
-        const button = new ButtonBuilder()
-            .setLabel("Invite")
-            .setStyle(ButtonStyle.Link)
-            .setURL(`https://discord.com/api/oauth2/authorize?client_id=${client.user.id}&permissions=36768832&scope=applications.commands%20bot`)
+  run: async (client, interaction) => {
+    await interaction.deferReply({
+      ephemeral: false,
+    });
 
-        const button2 = new ButtonBuilder()
-            .setLabel("GitHub")
-            .setStyle(ButtonStyle.Link)
-            .setURL("https://github.com/brblacky/lavamusic");
+    const button = new ButtonBuilder()
+      .setLabel("Invite")
+      .setStyle(ButtonStyle.Link)
+      .setURL(
+        `https://cdn.discordapp.com/attachments/950816917545967616/1040865856990740531/il_fullxfull.1715728964_209s.jpg`
+      );
 
-        const button3 = new ButtonBuilder()
-            .setLabel("Support Server")
-            .setStyle(ButtonStyle.Link)
-            .setURL("https://discord.gg/gfcv94hDhv")
+    const button2 = new ButtonBuilder()
+      .setLabel("Vote Here")
+      .setStyle(ButtonStyle.Link)
+      .setURL("https://discord.gg/pftPUD5yQ5");
 
-        const row = new ActionRowBuilder().addComponents(button, button2, button3);
+    const button3 = new ButtonBuilder()
+      .setLabel("Support Server")
+      .setStyle(ButtonStyle.Link)
+      .setURL("https://discord.gg/pftPUD5yQ5");
 
-        const mainPage = new EmbedBuilder()
-            .setAuthor({ name: 'LavaMusic', iconURL: 'https://media.discordapp.net/attachments/876035356460462090/888434725235097610/20210820_124325.png' })
-            .setThumbnail('https://media.discordapp.net/attachments/876035356460462090/888434725235097610/20210820_124325.png')
-            .setColor(0x303236)
-            .addFields([
-                { name: 'Creator', value: '[Blacky#6618](https://github.com/brblacky) and [Venom#9718](https://github.com/Venom9718/)', inline: true },
-                { name: 'Organization', value: '[Blacky](https://github.com/brblacky)', inline: true },
-                { name: 'Repository', value: '[Here](https://github.com/brblacky/lavamusic)', inline: true },
-                { name: '\u200b', value: `[LavaMusic](https://github.com/brblacky/lavamusic/) was created by [Blacky](https://github.com/brblacky) and [Venom](https://github.com/Venom9718). He really wanted to make his first open source project ever for more coding experience. In this project, he was challenged to make a project with less bugs. Hope you enjoy using LavaMusic!`, inline: true },
-            ]);
-        await interaction.followUp({ embeds: [mainPage], components: [row] });
-    }
-}
+    const row = new ActionRowBuilder().addComponents(button, button2, button3);
+
+    const mainPage = new EmbedBuilder()
+      .setAuthor({
+        name: "Aperstar",
+        iconURL:
+          "https://cdn.discordapp.com/attachments/950816917545967616/1040865856990740531/il_fullxfull.1715728964_209s.jpg",
+      })
+      .setThumbnail(
+        "https://cdn.discordapp.com/attachments/950816917545967616/1040865856990740531/il_fullxfull.1715728964_209s.jpg"
+      )
+      .setColor(0x303236)
+      .addFields([
+        {
+          name: "UPVOTE HERE",
+          value:
+            "[Click Here](https://discord.gg/pftPUD5yQ5)",
+          inline: true,
+        },
+        {
+          name: "Creator",
+          value: "[ᴄᴏᴛᴜ🍁!#4342](https://discord.gg/pftPUD5yQ5)",
+          inline: true,
+        },
+        {
+          name: "Respected Owner",
+          value: "[Here](https://discord.gg/pftPUD5yQ5)",
+          inline: true,
+        },
+        {
+          name: "\u200b",
+          value: `[Aperstar](https://discord.com/api/oauth2/authorize?client_id=950783746326544384&permissions=36768832&scope=bot) was created by [ᴄᴏᴛᴜ🍁!#4342](https://discord.gg/pftPUD5yQ5). He really wanted to make a bot in which has some special and premium features free of cost. He introducked Aperstar`,
+          inline: true,
+        },
+      ]);
+    await interaction.followUp({ embeds: [mainPage], components: [row] });
+  },
+};
